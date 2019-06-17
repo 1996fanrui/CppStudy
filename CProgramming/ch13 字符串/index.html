@@ -1379,7 +1379,7 @@
 
 
 <h3 id="_3">字符串字面量中的转义序列</h3>
-<p>字符串字面量可以包含转义序列：</p>
+<p>字符串字面量可以包含<a href="https://zh.cppreference.com/w/cpp/language/escape">转义序列</a>：</p>
 <div class="codehilite"><pre><span></span><span class="s">&quot;Hello</span><span class="se">\t</span><span class="s">World</span><span class="se">\n</span><span class="s">&quot;</span>
 </pre></div>
 
@@ -1420,7 +1420,8 @@
 <p>对于一些编译器而言，改变字符串字面量的内容可能会导致运行异常。因此不推荐这么做。</p>
 </div>
 <h3 id="_7">字符串字面量与字符常量</h3>
-<p>只包含一个字符的字符串串字面量不同于字符串常量。字符串字面量"a"是指针，指向存放字符a以及后续空字符的内存单元。字符常量'a'是一个整数。</p>
+<p>只包含一个字符的字符串字面量不同于字符常量。</p>
+<p>字符串字面量"a"是指针，指向存放字符a以及后续空字符的内存单元。而字符常量'a'是一个整数。</p>
 <h2 id="_8">字符串变量</h2>
 <p>C语言只要保证字符串是以空字符结尾的，任何一维的字符数组都可以用来存储字符串。</p>
 <p>定义字符串变量的惯用法：</p>
@@ -1431,7 +1432,9 @@
 
 <h3 id="_9">初始化字符串变量</h3>
 <p>字符串变量可以在声明时进行初始化：</p>
-<div class="codehilite"><pre><span></span><span class="kt">char</span> <span class="n">date1</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span> <span class="o">=</span> <span class="s">&quot;June 14&quot;</span><span class="p">;</span>
+<div class="codehilite"><pre><span></span><span class="kt">char</span> <span class="n">str</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">};</span> <span class="cm">/* 空字符串 */</span>
+
+<span class="kt">char</span> <span class="n">date1</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span> <span class="o">=</span> <span class="s">&quot;June 14&quot;</span><span class="p">;</span>
 
 <span class="kt">char</span> <span class="n">date2</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="sc">&#39;J&#39;</span><span class="p">,</span> <span class="sc">&#39;u&#39;</span><span class="p">,</span> <span class="sc">&#39;n&#39;</span><span class="p">,</span> <span class="sc">&#39;e&#39;</span><span class="p">,</span> <span class="sc">&#39;1&#39;</span><span class="p">,</span> <span class="sc">&#39;4&#39;</span><span class="p">,</span> <span class="sc">&#39;\0&#39;</span><span class="p">};</span>
 
@@ -1458,9 +1461,9 @@
 </ul>
 <h2 id="_11">字符串的读/写</h2>
 <p>使用 printf 和 puts 函数来读写字符串。</p>
-<p>使用 scanf 和 gets 函数来读字符串。但 gets 函数不安全。</p>
+<p>使用 scanf 和 gets 函数来读字符串。但 gets 函数不安全。推荐使用 fgets 函数。</p>
 <h2 id="c">使用C语言的字符串库</h2>
-<p>C语言的运算符无法操作字符串，C语言的库函数为字符串的操作提供了丰富的函数集。这些函数的原型驻留在 string.h 头文件中。</p>
+<p>C语言的运算符无法操作字符串，C语言的库函数为字符串的操作提供了丰富的函数集。这些函数的原型驻留在 string.h 头文件中。比如：</p>
 <p>strcpy 函数可以拷贝字符串。</p>
 <p>strcat 函数可以追加字符串。</p>
 <p>strcmp 函数可以比较字符串。</p>

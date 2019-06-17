@@ -1400,8 +1400,10 @@
 <hr />
 <h2 id="_2">整型</h2>
 <p>C语言支持两种根本不同的数值类型：整型和浮点型。整型的值都是数，而浮点型可能还有小数部分。整型还分为有符号的和无符号的。</p>
-<p>!!!note “有符号整数和无符号整数”
-    在有符号数中，如果数为正数或零，那么最左边的位（符号位）为0，如果是负数，符号位则为1。默认情况下，C语言中的整型变量都是有符号的。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>在有符号数中，如果数为正数或零，那么最左边的位（符号位）为0，如果是负数，符号位则为1。默认情况下，C语言中的整型变量都是有符号的。</p>
+</div>
 <p>C语言提供了不同尺寸的整型， int 是正常的尺寸。可以指明变量是 long 型或 short 型， signed 型或 unsigned 型。可以有这些类型组合：</p>
 <p>short int, unsigned short int, int, unsigned int, long int, unsigned long int</p>
 <p>可以把 int 省略掉，即 short int 可以写成 short 。</p>
@@ -1484,6 +1486,10 @@
 <p>表达式 sizeof(char) 的值始终为1。</p>
 <p>通常情况下， sizeof 运算符也可以应用于常量、变量和表达式。</p>
 <p>既然 sizeof 返回的是无符号的整型，所以最安全的做法是把 sizeof 表达式转换成 unsigned long 型。然后用转换说明符 %lu 进行。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>或者用%z来输出sizeof的结果。</p>
+</div>
 <h2 id="_12">类型转换</h2>
 <p>为了让计算机执行算术运算，通常要求操作数有相同的大小（即位的数量相同），并且要求存储的方式也相同。</p>
 <p>C语言允许表达式中混合使用基本数据类型，这种情况下编译器可能需要生成一些指令将某些操作数转换成不同类型，使得硬件可以对表达式进行计算。这类转换是隐式转换（ implicit conversion ）。C语言还允许程序员通过强制运算符执行显式转换（ explicit conversion ）。</p>
